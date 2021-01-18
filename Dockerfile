@@ -14,6 +14,9 @@ RUN tar vzfx apache-maven-3.6.3-bin.tar.gz
 ENV MAVEN_HOME /apache-maven-3.6.3
 ENV PATH ${MAVEN_HOME}/bin:${PATH}
 RUN mvn -v
+RUN wget https://get.helm.sh/helm-v3.5.0-linux-amd64.tar.gz
+RUN tar vzfx helm-v3.5.0-linux-amd64.tar.gz
+ENV PATH /linux-amd64:${PATH}
 RUN git clone https://github.com/oracle/weblogic-kubernetes-operator
 RUN cd weblogic-kubernetes-operator/ && mvn clean install
 
